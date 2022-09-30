@@ -1,8 +1,7 @@
 # Robots
-[a link](https://https://github.com/AbdelrahmanEnan/Robots/edit/main/README.md)
-"Main Code" is the Main code "I guess ^_^", in which comments and explainations are provided
-But "Main Code 2" is better written and the last version of the code.
-The comments in the main code is good for "Main Code", "Main Code 2", and "MainCodeNika"
+[Main Code](https://github.com/AbdelrahmanEnan/Robots/Main Code) is the Main code "I guess ^_^", in which comments and explainations are provided
+But [Main Code 2](https://github.com/AbdelrahmanEnan/Robots/Main Code 2) is better written and the last version of the code.
+The comments in the [Main Code](https://github.com/AbdelrahmanEnan/Robots/Main Code) is good for [Main Code](https://github.com/AbdelrahmanEnan/Robots/Main Code), [Main Code 2](https://github.com/AbdelrahmanEnan/Robots/Main Code 2), and [MainCodeNika](https://github.com/AbdelrahmanEnan/Robots/MainCodeNika).
 
 
 As for the ESP32-CAM:
@@ -16,4 +15,3 @@ This website has almost everything about ESP32-CAM
 
 
 Sorry Time wasn't on my side today 
-Sorry again for sending this late
