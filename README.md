@@ -1,23 +1,23 @@
 # Table of Contents
 1. [Introduction](#Introduction)
 2. [Objectives](#Objectives)
-   - [MainCode Robot](#MainCode Robot)
-   - [MainCodeNika Robot](#MainCodeNika Robot)
-   - [MainCodeGreen1 Robot](#MainCodeGreen1 Robot)
+   - [MainCode Robot](#MainCode%20Robot)
+   - [MainCodeNika Robot](#MainCodeNika%20Robot)
+   - [MainCodeGreen1 Robot](#MainCodeGreen1%20Robot)
    - [MainCodeAws Robot](#MainCodeAws Robot)
-3. [Materials and Equibments](#Materials and Equibments)
+3. [Materials and Equibments](#Materials%20and%20Equibments)
 4. [Physical Layout](#Physical Layout)
-5. [Electerical Connections](#Electerical Connections)
+5. [Electerical Connections](#Electerical%20Connections)
 6. [Software](#Software)
-   - [Arduino Codes](#Arduino Codes)
+   - [Arduino Codes](#Arduino%20Codes)
    - [ESP32-CAM](#ESP32-CAM)
-   - [App Inventor](#App Inventor)
-   - [Mobile Application](#Mobile Application)
-7. [Further Work](#Further Work)
+   - [App Inventor](#App%20Inventor)
+   - [Mobile Application](#Mobile%20Application)
+7. [Further Work](#Further%20Work)
 # Introduction
 Robots are machines that are programmed to perform certain tasks either by obtaining an instant command from user (controlled remotely), or acting upon a predefined command (automated).
 
-The physical layout of the robots were built in Solidworks software, the electrical connections were set and simulated using [TinkerCAD](https://www.tinkercad.com/circuits) software to verify the functionality and aesthetics of the design, and control code was written and uploaded using Arduino IDE software. The codes were uploaded to Arduino Uno microcontroller and ESP32-CAM, but it can be uploaded to any other Arduino boards (and some other boards, but the code might require further modifications.
+The physical layout of the robots were built in Solidworks software, the electrical connections were set and simulated using [TinkerCAD](https://www.tinkercad.com/circuits) software to verify the functionality and aesthetics of the design, and software code was written and uploaded using Arduino IDE software. The codes were uploaded to Arduino Uno microcontroller and ESP32-CAM, but it can be uploaded to any other Arduino boards (and some other boards, but the code might require further modifications.
 > **Warning**
 > Special attention must be given to pins when making hardware connections.
 
@@ -89,7 +89,8 @@ The previous website has almost everything about ESP32-CAM.
 [Robooot.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/Robooot.aia), [Nika.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/Nika.aia), and [RobotGreen.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/RobotGreen.aia) are the programs needed to be imported to App Inventor.
 
 ## Mobile Application
-![](https://github.com/AbdelrahmanEnan/Robots/blob/main/Interface.png)
+![](https://github.com/AbdelrahmanEnan/Robots/blob/main/Interface.png).
+
 Previous figure shows the user interface of the mobile application.
 
 Starting from making Bluetooth module connected to the Arduino by letting the user to choose Bluetooth name from a list of available devices. Before a Bluetooth connection is made, every item in the app is invisible except for the Bluetooth menu. When Bluetooth is connected, a “Choose_Method_List” menu appears containing different methods form which the user chooses the desired one. If the user chooses “Manual”, the manual block will appear, otherwise if the user chooses “Coordinates”, the coordinate block will appear.
