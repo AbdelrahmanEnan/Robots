@@ -1,7 +1,7 @@
 # Table of Contents
 1. [Introduction](#Introduction)
 2. [Objectives](#Objectives)
-   - [MainCode Robot](#MainCode%20Robot)
+   - [MainCode Robot](#MainCode Robot)
    - [MainCodeNika Robot](#MainCodeNika%20Robot)
    - [MainCodeGreen1 Robot](#MainCodeGreen1%20Robot)
    - [MainCodeAws Robot](#MainCodeAws%20Robot)
