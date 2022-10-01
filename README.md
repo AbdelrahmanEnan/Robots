@@ -4,9 +4,9 @@
    - [MainCode Robot](#MainCode%20Robot)
    - [MainCodeNika Robot](#MainCodeNika%20Robot)
    - [MainCodeGreen1 Robot](#MainCodeGreen1%20Robot)
-   - [MainCodeAws Robot](#MainCodeAws Robot)
+   - [MainCodeAws Robot](#MainCodeAws%20Robot)
 3. [Materials and Equibments](#Materials%20and%20Equibments)
-4. [Physical Layout](#Physical Layout)
+4. [Physical Layout](#Physical%20Layout)
 5. [Electerical Connections](#Electerical%20Connections)
 6. [Software](#Software)
    - [Arduino Codes](#Arduino%20Codes)
@@ -59,13 +59,17 @@ In this section, the most important equibments that were used to build the robot
 
 # Physical Layout
 The following Figure shows the physical layout of the [MainCode](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode) Robot using SolidWorks software.
+
 ![](https://github.com/AbdelrahmanEnan/Robots/blob/main/Isometric%20view%20of%20the%20assembly.png)
 # Electerical Connections
 > **Note**
 > The main focus of this document is in the software part of the robots (Not the hardware), but a general picture of the hardware is given as well.
 The following diagram shows the electrical connections of all components for the [MainCode](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode) Robot
+
 ![](https://github.com/AbdelrahmanEnan/Robots/blob/main/All%20electrical%20connections.png)
+
 While the following diagram shows the connection between the Bluetooth chip and Arduino.
+
 ![](https://github.com/AbdelrahmanEnan/Robots/blob/main/bluetooth_stKw11hoiw.jpg)
 # Software
 All Arduino (and ESP32-CAM) codes were written in the Arduino IDE in C++ , and it mainly consists of three parts: Global part, Setup part, and Loop part. Global part is used to call the used libraries, and to declare the global variables used and to assign values to them if needed. In Setup part as the name implies, Arduino board is set up by setting pins mode, INPUT or OUTPUT, as well as variables initializing ("initial condition"). In Loop part, as the name implies, which is the main part, the code is repeated forever as long as there is a power for Arduino. Other than these three main functions, several functions were written to help Loop function to perform as desired.
