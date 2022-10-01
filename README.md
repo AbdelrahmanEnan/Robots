@@ -64,6 +64,7 @@ The following Figure shows the physical layout of the [MainCode](https://github.
 # Electerical Connections
 > **Note**
 > The main focus of this document is in the software part of the robots (Not the hardware), but a general picture of the hardware is given as well.
+
 The following diagram shows the electrical connections of all components for the [MainCode](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode) Robot
 
 ![](https://github.com/AbdelrahmanEnan/Robots/blob/main/All%20electrical%20connections.png)
