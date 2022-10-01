@@ -16,7 +16,7 @@ This section is to state robots’ functionality for the different versions of c
 
 most fundamental functions which is to move, to avoid obstacles, to record video, to take photos when ordered, and to broadcast the recorded video on a local network.
 ### MainCodeNika Robot
-1. To be controlled directly by the user by receiving commands from users controller (Mobile Phone); to move and to collect physical materials (ex. rocks) using the gripper.
+To be controlled directly by the user by receiving commands from users controller (Mobile Phone); to move and to collect physical materials (ex. rocks) using the gripper.
 ### MainCodeGreen1 Robot
 It has four different modes which are:
 1. Line Follower: using Infrared Radiation sensor
@@ -24,10 +24,7 @@ It has four different modes which are:
 3. JoyStick: controlled by user (for educational purposes)
 4. Manual: controlled directly by the user by receiving commands from users controller (Mobile Phone)
 ### MainCodeAws Robot
-1. To establish a communication between the user and the one robot (the Master), and allow the Master to calculate the distances to the destination, and order the closest robot (either himself or the Slave - the closest -) to move towards it.
-## Further Work 
-It would be more advanced if a velocity sensor is added to monitor robot’s speed to avoid any miscalculations and to ensure that the robot moves the exact amount of time required, hence the exact desired distance.
-
+To establish a communication between the user and the one robot (the Master), and allow the Master to calculate the distances to the destination, and order the closest robot (either himself or the Slave - the closest -) to move towards it.
 
 
 ## Arduino Code
@@ -41,7 +38,7 @@ But [Main Code 2](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode2)
 
 The comments in the [Main Code](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode) is good for [Main Code](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode), [MainCode2](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode2), and [MainCodeNika](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCodeNika).
 
-[FlowChart](https://github.com/AbdelrahmanEnan/Robots/blob/main/FlowChart.jpg) file shows the flow chart of the [main code](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode)
+![FlowChart](https://github.com/AbdelrahmanEnan/Robots/blob/main/FlowChart.jpg) file shows the flow chart of the [main code](https://github.com/AbdelrahmanEnan/Robots/tree/main/MainCode)
 
 ## ESP32-CAM
 [This video](https://www.youtube.com/watch?v=q-KIpFIbRMk), and [this website](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/) contain enough instructions to stream live video to local IP adress.
@@ -54,3 +51,5 @@ The previous website has almost everything about ESP32-CAM.
 
 [Robooot.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/Robooot.aia), [Nika.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/Nika.aia), and [RobotGreen.aia](https://github.com/AbdelrahmanEnan/Robots/blob/main/RobotGreen.aia) are the programs needed to be imported to App Inventor.
 
+## Further Work 
+It would be more advanced if a velocity sensor is added to monitor robot’s speed to avoid any miscalculations and to ensure that the robot moves the exact amount of time required, hence the exact desired distance.
