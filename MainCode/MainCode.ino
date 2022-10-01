@@ -568,7 +568,7 @@ void loop(){
                 delay(5000);
                 Home();
             }
-            else                //For X-Y Coordinates method
+            else                //For direct Coordinates method
             {
                 GetAngle ();
                 GoTo();
