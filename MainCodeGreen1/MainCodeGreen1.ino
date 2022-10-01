@@ -5,48 +5,54 @@ using namespace std;
 
 SoftwareSerial myB (2,3);//RX,TX
 
-int enable1 = 9;
-int R1 = 4;
-int R2 = 5;
-int enable2 = 10;
-int L1 = 7;
-int L2 = 6;
+int E1 = 9; //Enable for First motor
+int R1 = 4; //Mode 1 for First motor (Forward Mode)
+int R2 = 5; //Mode 2 for First motor (Backward Mode)
+int E2 = 10;//Enable for Second motor
+int L1 = 7; //Mode 1 for Second motor (Forward Mode)
+int L2 = 6; //Mode 2 for Second motor (Backward Mode)
 
+//Defining variables for motors' speed
 int motorSpeedA = 0;
 int motorSpeedB = 0;
 
+//Defining pins of Infrared Radiation sensors and initializing them
+const int IR1 = A0;
+const int IR2 = A1;
+int IR1Val = analogRead(IR1);
+int IR2Val = analogRead(IR2); 
 
-const int infraRed1 = A0;
-const int infraRed2 = A1;
-
+//Defining pins of the JoyStick
 const int xJoy = A2;
 const int yJoy = A3;
 
-int infraRed1Val = analogRead(infraRed1);
-int infraRed2Val = analogRead(infraRed2); 
-
+//Defining pins and other initial features of Ultrasonic sensors
 #define Trig A4
 #define Echo A5 
 #define Max_Distance 200
 int distance = 100;
 NewPing sonar(Trig, Echo, Max_Distance); 
 
+//Intitializing the Servo Motor
 Servo servo_motor;
 
 char received = '9';
 
 void setup(){
-
+    //Setting the data rate in bits per second (baud) for serial data transmission. 
     Serial.begin(9600);
     myB.begin(9600);
-    pinMode(enable1,OUTPUT);
+    //Configuration the specified pin to behave either as an input or an output
+    pinMode(E1,OUTPUT);
     pinMode(R1,OUTPUT);
     pinMode(R2,OUTPUT);
-    pinMode(enable2,OUTPUT);
+    pinMode(E2,OUTPUT);
     pinMode(L1,OUTPUT);
     pinMode(L2,OUTPUT);
+    //Specifying pin used for Servo motor signal (output) and initiate it 90 degrees (to be forward).
     servo_motor.attach(13);
     servo_motor.write(90);
+    //Initializing the Ultrasonic sensor and read its first distance. 
     delay(2000);
     distance = readPing();
     delay(100);
@@ -58,7 +64,7 @@ void setup(){
     delay(100);
 }
 
-int lookRight(){  
+int CheckRight(){  
   servo_motor.write(10);
   delay(500);
   int distance = readPing();
@@ -67,7 +73,7 @@ int lookRight(){
   return distance;
 }
 
-int lookLeft(){
+int CheckLeft(){
   servo_motor.write(170);
   delay(500);
   int distance = readPing();
@@ -80,92 +86,92 @@ int lookLeft(){
 int readPing(){
   delay(70);
   int cm = sonar.ping_cm();
-  if (cm==0){
-    cm=250;
+  if (cm == 0){
+    cm = 250;
   }
   return cm;
 }
 
+void Forward() {
+  analogWrite(E1, 100);
+  analogWrite(E2, 100);
+  digitalWrite(R1, HIGH);
+  digitalWrite(R2, LOW);
+  digitalWrite(L1, LOW);
+  digitalWrite(L2, HIGH);
+  
+}
+
+void Backward() {
+  analogWrite(E1, 100);
+  analogWrite(E2, 100);
+  digitalWrite(R1, LOW);
+  digitalWrite(R2, HIGH);
+  digitalWrite(L1, HIGH);
+  digitalWrite(L2, LOW);
+  
+}
+
+void Right() {
+  analogWrite(E1, 100);
+  analogWrite(E2, 100);
+  digitalWrite(R1, LOW);
+  digitalWrite(R2, HIGH);
+  digitalWrite(L1, LOW);
+  digitalWrite(L2, HIGH);
+  
+}
+
+void Left() {
+  analogWrite(E1,100);
+  analogWrite(E2, 100);
+  digitalWrite(R1, HIGH);
+  digitalWrite(R2, LOW);
+  digitalWrite(L1, HIGH);
+  digitalWrite(L2, LOW);
+}
+
 void Stop() {
-  analogWrite(enable1, 0);
-  analogWrite(enable2, 0);
+  analogWrite(E1, 0);
+  analogWrite(E2, 0);
   digitalWrite(R1, LOW);
   digitalWrite(R2, LOW);
   digitalWrite(L1, LOW);
   digitalWrite(L2, LOW);
-}
-
-void turnRight() {
-  analogWrite(enable1, 100);
-  analogWrite(enable2, 100);
-  digitalWrite(R1, LOW);
-  digitalWrite(R2, HIGH);
-  digitalWrite(L1, LOW);
-  digitalWrite(L2, HIGH);
-  
-}
-
-void turnLeft() {
-  analogWrite(enable1,100);
-  analogWrite(enable2, 100);
-  digitalWrite(R1, HIGH);
-  digitalWrite(R2, LOW);
-  digitalWrite(L1, HIGH);
-  digitalWrite(L2, LOW);
-}
-
-void moveForward() {
-  analogWrite(enable1, 100);
-  analogWrite(enable2, 100);
-  digitalWrite(R1, HIGH);
-  digitalWrite(R2, LOW);
-  digitalWrite(L1, LOW);
-  digitalWrite(L2, HIGH);
-  
-}
-
-void moveBackward() {
-  analogWrite(enable1, 100);
-  analogWrite(enable2, 100);
-  digitalWrite(R1, LOW);
-  digitalWrite(R2, HIGH);
-  digitalWrite(L1, HIGH);
-  digitalWrite(L2, LOW);
-  
 }
 
 void LineFollower(){
   while (received == '0')
   {
-    if (analogRead(infraRed1)<200){
+    if (analogRead(IR1)<200){
       digitalWrite(R1, HIGH);
       digitalWrite(R2, LOW);
-      analogWrite(enable1, 150);
+      analogWrite(E1, 150);
     }
     else  {
       digitalWrite(R1, LOW);
       digitalWrite(R2, HIGH);
-      analogWrite(enable1, 150);
+      analogWrite(E1, 150);
       digitalWrite(L1, HIGH);
       digitalWrite(L2, LOW);
-      analogWrite(enable2, 150);
+      analogWrite(E2, 150);
     }
-    if(analogRead(infraRed2)<200){
+    if(analogRead(IR2)<200){
       digitalWrite(L1, HIGH);
       digitalWrite(L2, LOW);
-      analogWrite(enable2, 150);
+      analogWrite(E2, 150);
     }
     else  {
       digitalWrite(R1, HIGH);
       digitalWrite(R2, LOW);
-      analogWrite(enable1, 150);
+      analogWrite(E1, 150);
       digitalWrite(L1, LOW);
       digitalWrite(L2, HIGH);
-      analogWrite(enable2, 150);
+      analogWrite(E2, 150);
     }
-    Serial.print(analogRead(infraRed1));
+    Serial.print(analogRead(IR1));
     Serial.print(" ");
-    Serial.println(analogRead(infraRed2));
+    Serial.println(analogRead(IR2));
     //Might need a delay(500); or something like that
     if (myB.available() > 0)// may delete it
     {
@@ -178,8 +184,8 @@ void ObsatcleAvoiding(){
   while (received == '1')
   {
     Serial.print("Still there ");
-    int distanceRight = 0;
-    int distanceLeft = 0;
+    int disRight  = 0;
+    int disLeft  = 0;
     delay(1000);
     int distance = sonar.ping_cm();
     Serial.println(distance);
@@ -190,29 +196,29 @@ void ObsatcleAvoiding(){
       Serial.println("<25 ");
       Stop();
       delay(300);
-      moveBackward();
+      Backward();
       delay(500);
       Stop();
       delay(100);
-      distanceRight = lookRight();
+      disRight  = CheckRight();
       delay(500);
-      distanceLeft = lookLeft();
+      disLeft  = CheckLeft();
       delay(500);
-      int tmpdist = distanceLeft - distanceRight;
-      if (tmpdist >0 || distance >= distanceLeft)
+      int tmpdist = disLeft  - disRight ;
+      if (tmpdist >0 || distance >= disLeft )
       {     
-        turnRight();
+        Right();
         delay (1000);
-        moveForward();
+        Forward();
       }
       else {
-        turnLeft();
+        Left();
         delay(1000);
-        moveForward();
+        Forward();
       }
     }
     else{
-      moveForward(); 
+      Forward(); 
       Serial.println("10000000 ");
     }
     distance = readPing();
@@ -282,8 +288,8 @@ void JoyStick(){
       motorSpeedA = map(xAxis, 550, 1023, 0, 255);
       motorSpeedB = map(xAxis, 550, 1023, 0, 255);
     }
-    analogWrite(enable1, motorSpeedA); // Send PWM signal to motor A
-    analogWrite(enable2, motorSpeedB); // Send PWM signal to motor B
+    analogWrite(E1, motorSpeedA); // Send PWM signal to motor A
+    analogWrite(E2, motorSpeedB); // Send PWM signal to motor B
     //Might need delay(1000); or something like that
     if (myB.available() > 0)// may delete it
     {
@@ -297,20 +303,20 @@ void Manual (){
   {
     if (received == '3')
     {
-     moveForward();
+     Forward();
      Serial.print("F");
     }
     else if (received == '4')
     {
-      moveBackward();
+      Backward();
     }
     else if (received == '5')
     {
-      turnRight();
+      Right();
     }
     else if (received == '6')
     {
-      turnLeft();
+      Left();
     }
     else if (received == '7')
     {
@@ -327,8 +333,8 @@ void Manual (){
 
 void loop(){
 
-    analogWrite(enable1, 255);
-    analogWrite(enable2, 255);
+    analogWrite(E1, 255);
+    analogWrite(E2, 255);
     while (myB.available() == 0)
     {
       Serial.print("Wait");
