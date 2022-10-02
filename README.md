@@ -106,3 +106,5 @@ In "Coordinates" block there are two buttons for selecting the method in the fir
 
 # Further Work 
 It would be more advanced if a velocity sensor is added to monitor robot’s speed to avoid any miscalculations and to ensure that the robot moves the exact amount of time required, hence the exact desired distance.
+
+Thank you for reaching there!
