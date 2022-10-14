@@ -332,6 +332,7 @@ Right();
 Stop();
 while(No reading from IR sensor)
     BackLeft();
+Right();
 */
 
 void BackLeft(){
