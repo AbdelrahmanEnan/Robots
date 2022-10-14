@@ -324,6 +324,16 @@ void BackRight(){
     RRecord();
 }
 
+/*
+while (dis > 15)
+    FollowLine();
+Stop();
+Right();
+Stop();
+while(No reading from IR sensor)
+    BackLeft();
+*/
+
 void BackLeft(){
 
     int disLeft = 0;
